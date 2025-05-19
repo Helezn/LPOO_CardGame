@@ -4,21 +4,59 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author acer
  */
-public class Jogador {
-
+public class Jogador implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "jog_id")
     private int id;
+    @Column(name = "jog_nickname", nullable = false)
     private String nickname;
+    @Column(name = "jog_level")
     private int level;
-    private List<Carta> baralho;
     
+    private List<Carta> baralho;
+
     public Jogador() {
-        this.baralho = new ArrayList<>();
+        baralho = new ArrayList<>();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public List<Carta> getBaralho() {
+        return baralho;
     }
 }

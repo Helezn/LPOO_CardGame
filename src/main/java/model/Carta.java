@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -21,7 +22,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tbl_carta")
 
-public class Carta {
+public class Carta implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
